@@ -32,6 +32,14 @@ public class QRCodeController : ControllerBase
         return File(byteArray, "application/pdf", "QRCodeDocument.pdf");
     }
     
+    [HttpGet("AddQrCodeToExistingPdf")]
+    public IActionResult AddQrCodeToExistingPdf()
+    {
+        var byteArray = _syncfusionService.AddQrCodeToPdfFooter();
+        
+        return File(byteArray, "application/pdf", "QRCodeFooter.pdf");
+    }
+    
     // [HttpGet(Name = "AddQRCodeToWord")]
     // public IActionResult AddQRCodeToWord()
     // {
